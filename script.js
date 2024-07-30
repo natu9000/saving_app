@@ -1,16 +1,19 @@
-function doubleNumbers() {
-    const inputNumber1 = document.getElementById('inputNumber1').value;
-    const inputNumber2 = document.getElementById('inputNumber2').value;
-    const inputNumber3 = document.getElementById('inputNumber3').value;
-    const inputNumber4 = document.getElementById('inputNumber4').value;
+function calculateFraction() {
+    const inputA = document.getElementById('inputA').value;
+    const inputB = document.getElementById('inputB').value;
+    const inputC = document.getElementById('inputC').value;
+    const inputD = document.getElementById('inputD').value;
 
-    const result1 = inputNumber1 * 2;
-    const result2 = inputNumber2 * 2;
-    const result3 = inputNumber3 * 2;
-    const result4 = inputNumber4 * 2;
+    // 入力値が数値かどうかを確認し、ゼロ除算を防止
+    if (!inputA || !inputB || !inputC || !inputD) {
+        document.getElementById('result').textContent = "Please enter all four numbers.";
+        return;
+    }
+    if (inputB == 0 || inputD == 0) {
+        document.getElementById('result').textContent = "Denominators (b and d) cannot be zero.";
+        return;
+    }
 
-    document.getElementById('result1').textContent = `Result 1: ${result1}`;
-    document.getElementById('result2').textContent = `Result 2: ${result2}`;
-    document.getElementById('result3').textContent = `Result 3: ${result3}`;
-    document.getElementById('result4').textContent = `Result 4: ${result4}`;
+    const result = (inputA / inputB) * (inputC / inputD);
+    document.getElementById('result').textContent = `Result: ${result}`;
 }
