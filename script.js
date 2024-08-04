@@ -18,7 +18,9 @@ function calculatePricePerGram() {
 
     const result1 = price1 / gram1;
     const result2 = price2 / gram2;
+    result1 = Math.floor(result1*10)/10
+    result2 = Math.floor(result2*10)/10
 
-    document.getElementById('result1').textContent = `${result1} 円/g`;
-    document.getElementById('result2').textContent = `Price per gram 2 = ${result2}`;
+    document.getElementById('result1').textContent = `グラム当たり ${result1} 円`;
+    document.getElementById('result2').textContent = `グラム当たり ${result2} 円`;
 }
